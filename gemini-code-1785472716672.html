@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Hackers - রেডওয়ান আসিফ রিসান</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-100 antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 py-10 border-b border-slate-800 text-center">
+        <div class="max-w-6xl mx-auto px-4">
+            <span class="bg-teal-500 text-slate-950 font-bold text-sm px-4 py-1.5 rounded-full inline-block mb-4 shadow-lg">স্পেশাল ডিসকাউন্ট অফার!</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">Mind Hackers</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-2">ভালোবাসা আর মানব নিয়ন্ত্রণের অদৃশ্য কৌশল</p>
+            <p class="text-lg text-teal-400 font-medium mb-4">মস্তিষ্কের গোপন খেলা</p>
+            <p class="text-gray-400 text-sm">রচিয়তা: <strong class="text-white">রেদোয়ান আসিফ রিসান</strong></p>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        <!-- Book Image & Details -->
+        <div class="space-y-6 text-center md:text-left">
+            <!-- Book Cover Image -->
+            <div class="flex justify-center md:justify-start">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+                    <img src="cover.jpg" alt="Mind Hackers Book Cover" class="relative w-72 md:w-80 rounded-2xl shadow-2xl border border-slate-700 mx-auto object-cover">
+                </div>
+            </div>
+
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 shadow-xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-700 pb-3">
+                    <div>
+                        <span class="text-gray-400 text-sm line-through">কভার মূল্য: ২৫০ টাকা</span>
+                        <h3 class="text-2xl font-bold text-teal-400">মূল্য: ১৮৭ টাকা <span class="text-sm font-normal text-gray-300">(২৫% ছাড়ে)</span></h3>
+                    </div>
+                    <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold px-3 py-1.5 rounded-lg">২৫% ছাড়</span>
+                </div>
+
+                <h2 class="text-xl font-bold text-teal-300">স্পেশাল অফার ও গিফটসমূহ:</h2>
+                <ul class="space-y-2 text-gray-300 text-sm md:text-base">
+                    <li class="flex items-center justify-center md:justify-start">
+                        <span class="text-teal-400 mr-2">✍️</span> লেখকের নিজের হাতে সাইন করা **অটোগ্রাফ (Autograph)** কপি!
+                    </li>
+                    <li class="flex items-center justify-center md:justify-start">
+                        <span class="text-teal-400 mr-2">🎁</span> সাথে থাকছে আকর্ষণীয় **সারপ্রাইজ গিফট্স (Gifts)**!
+                    </li>
+                </ul>
+
+                <div class="border-t border-slate-700 pt-3 text-sm text-gray-300 space-y-1">
+                    <p>🚚 **ডেলিভারি চার্জ:** ঢাকার ভেতরে ৮০ টাকা | ঢাকার বাইরে ১২০ টাকা</p>
+                </div>
+            </div>
+
+            <!-- Author Contact Info -->
+            <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/60 flex flex-col sm:flex-row items-center justify-around gap-3 text-sm">
+                <a href="https://facebook.com/author.risan" target="_blank" class="flex items-center text-teal-300 hover:text-teal-400 font-medium">
+                    🌐 ফেসবুক আইডি: author.risan
+                </a>
+                <a href="https://wa.me/8801873565856" target="_blank" class="flex items-center text-teal-300 hover:text-teal-400 font-medium">
+                    📞 WhatsApp: 01873565856
+                </a>
+            </div>
+        </div>
+
+        <!-- Order Form Section -->
+        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl" id="order-form-section">
+            <h2 class="text-2xl font-bold mb-2 text-center text-teal-300">বইটি অর্ডার করতে ফর্মটি পূরণ করুন</h2>
+            <p class="text-xs text-center text-gray-400 mb-6">ক্যাশ অন ডেলিভারি (পণ্য হাতে পেয়ে মূল্য পরিশোধ)</p>
+            
+            <!-- Formspree Action Link -->
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">আপনার পুরো নাম *</label>
+                    <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400" placeholder="যেমন: তানভীর আহমেদ">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">মোবাইল নম্বর (যোগাযোগের জন্য) *</label>
+                    <input type="tel" name="phone" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400" placeholder="01873565856">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">ডেলিভারি ঠিকানা (বাসা/রোড, থানা, জেলা) *</label>
+                    <textarea name="address" required rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400" placeholder="আপনার সম্পূর্ণ ঠিকানা লিখুন"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">ডেলিভারি এলাকা নির্বাচন করুন *</label>
+                    <select name="delivery_area" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400">
+                        <option value="Inside Dhaka">ঢাকার ভেতরে (ডেলিভারি চার্জ ৮০ টাকা)</option>
+                        <option value="Outside Dhaka">ঢাকার বাইরে (ডেলিভারি চার্জ ১২০ টাকা)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">বইয়ের কপি সংখ্যা</label>
+                    <input type="number" name="quantity" value="1" min="1" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400">
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-slate-950 font-bold py-3.5 rounded-lg shadow-lg transition duration-200 text-lg cursor-pointer">
+                    অর্ডার কনফার্ম করুন
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm border-t border-slate-800 mt-12">
+        <p>&copy; Mind Hackers | রচয়িতা: রেডওয়ান আসিফ রিসান</p>
+    </footer>
+
+</body>
+</html>
