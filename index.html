@@ -22,7 +22,7 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-300">Mind Hackers</h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-2">ভালোবাসা আর মানব নিয়ন্ত্রণের অদৃশ্য কৌশল</p>
             <p class="text-lg text-teal-400 font-medium mb-4">মস্তিষ্কের গোপন খেলা</p>
-            <p class="text-gray-400 text-sm">রচিয়তা: <strong class="text-white">রেদোয়ান আসিফ রিসান</strong></p>
+            <p class="text-gray-400 text-sm">রচয়িতা: <strong class="text-white">রেদোয়ান আসিফ রিসান</strong></p>
         </div>
     </header>
 
@@ -31,11 +31,11 @@
         
         <!-- Book Image & Details -->
         <div class="space-y-6 text-center md:text-left">
-            <!-- Book Cover Image -->
+            <!-- Book Cover Image (cover.png) -->
             <div class="flex justify-center md:justify-start">
                 <div class="relative group">
                     <div class="absolute -inset-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-                    <img src="cover.jpg" alt="Mind Hackers Book Cover" class="relative w-72 md:w-80 rounded-2xl shadow-2xl border border-slate-700 mx-auto object-cover">
+                    <img src="cover.png" alt="Mind Hackers Book Cover" class="relative w-72 md:w-80 rounded-2xl shadow-2xl border border-slate-700 mx-auto object-cover">
                 </div>
             </div>
 
@@ -75,12 +75,20 @@
         </div>
 
         <!-- Order Form Section -->
-        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl" id="order-form-section">
+        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl relative" id="order-form-section">
             <h2 class="text-2xl font-bold mb-2 text-center text-teal-300">বইটি অর্ডার করতে ফর্মটি পূরণ করুন</h2>
             <p class="text-xs text-center text-gray-400 mb-6">ক্যাশ অন ডেলিভারি (পণ্য হাতে পেয়ে মূল্য পরিশোধ)</p>
             
-            <!-- Formspree Action Link Connected -->
-            <form action="https://formspree.io/f/xdaqvdlw" method="POST" class="space-y-4">
+            <!-- Success Message Box (Hidden by default) -->
+            <div id="success-message" class="hidden bg-teal-900/80 border border-teal-500 text-teal-200 p-6 rounded-xl text-center space-y-3 my-4">
+                <svg class="w-12 h-12 text-teal-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <h3 class="text-xl font-bold text-white">ধন্যবাদ! আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে।</h3>
+                <p class="text-sm">খুব শীঘ্রই আমরা আপনার সাথে যোগাযোগ করে বইটি কনফার্ম করব।</p>
+                <button onclick="resetForm()" class="mt-3 bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold py-2 px-4 rounded-lg">আরেকটি অর্ডার করুন</button>
+            </div>
+
+            <!-- Formspree Action Link -->
+            <form id="order-form" action="https://formspree.io/f/xdaqvdlw" method="POST" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-300 mb-1">আপনার পুরো নাম *</label>
                     <input type="text" name="name" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400" placeholder="আপনার নাম লিখুন">
@@ -109,7 +117,7 @@
                     <input type="number" name="quantity" value="1" min="1" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-teal-400">
                 </div>
 
-                <button type="submit" class="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-slate-950 font-bold py-3.5 rounded-lg shadow-lg transition duration-200 text-lg cursor-pointer">
+                <button type="submit" id="submit-btn" class="w-full bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-slate-950 font-bold py-3.5 rounded-lg shadow-lg transition duration-200 text-lg cursor-pointer">
                     অর্ডার কনফার্ম করুন
                 </button>
             </form>
@@ -121,6 +129,54 @@
     <footer class="text-center py-6 text-gray-500 text-sm border-t border-slate-800 mt-12">
         <p>&copy; Mind Hackers | রচয়িতা: রেদোয়ান আসিফ রিসান</p>
     </footer>
+
+    <!-- JavaScript for AJAX Form Submission & Success Message -->
+    <script>
+        var form = document.getElementById("order-form");
+        
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var statusBtn = document.getElementById("submit-btn");
+            statusBtn.innerText = "অর্ডার জমা হচ্ছে...";
+            statusBtn.disabled = true;
+            
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById("order-form").style.display = "none";
+                    document.getElementById("success-message").style.display = "block";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            alert(data["errors"].map(error => error["message"]).join(", "));
+                        } else {
+                            alert("দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+                        }
+                    })
+                }
+                statusBtn.innerText = "অর্ডার কনফার্ম করুন";
+                statusBtn.disabled = false;
+            }).catch(error => {
+                alert("নেটওয়ার্ক সমস্যা! দয়া করে ইন্টারনেট কানেকশন চেক করুন।");
+                statusBtn.innerText = "অর্ডার কনফার্ম করুন";
+                statusBtn.disabled = false;
+            });
+        }
+        
+        form.addEventListener("submit", handleSubmit);
+
+        function resetForm() {
+            document.getElementById("success-message").style.display = "none";
+            document.getElementById("order-form").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
